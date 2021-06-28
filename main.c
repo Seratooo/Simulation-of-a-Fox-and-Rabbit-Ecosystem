@@ -60,9 +60,9 @@ Rocha setRocha(int x,int y){
 
 int main(int argc, char *argv[]){
    
-  // int GER_PROC_COELHOS=2,GER_PROC_RAPOSAS=9,GER_ALIM_RAPOSAS=6,N_GER=4,N_OBJS,LIN=10,COL=10;
+   int GER_PROC_COELHOS=2,GER_PROC_RAPOSAS=9,GER_ALIM_RAPOSAS=6,N_GER=4,N_OBJS,LIN=10,COL=10;
 
-   int GER_PROC_COELHOS=2,GER_PROC_RAPOSAS=4,GER_ALIM_RAPOSAS=3,N_GER=6,N_OBJS,LIN=5,COL=5;
+ //  int GER_PROC_COELHOS=2,GER_PROC_RAPOSAS=4,GER_ALIM_RAPOSAS=3,N_GER=5,N_OBJS,LIN=5,COL=5;
 
 /* printf("\nDigite o número de gerações até que um coelho possa procriar: ");
   scanf("%d",&GER_PROC_COELHOS);
@@ -131,7 +131,7 @@ int main(int argc, char *argv[]){
 
 
 
-        /* Matriz[7][2].id=3;
+         Matriz[7][2].id=3;
          Matriz[7][2].pedra = setRocha(7,2);
 
 
@@ -324,9 +324,9 @@ int main(int argc, char *argv[]){
          Matriz[4][6].id=2;
          Matriz[4][6].raposa = setRaposa(4,6,0,0,0);
 
-*/
 
 
+/*
          Matriz[0][0].id=3;
          Matriz[0][0].pedra = setRocha(0,0);
          
@@ -353,7 +353,7 @@ int main(int argc, char *argv[]){
 
          Matriz[4][4].id=2;
          Matriz[4][4].raposa = setRaposa(4,4,0,0,0);
-
+*/
 
 
 
@@ -421,16 +421,16 @@ int main(int argc, char *argv[]){
 
                         int G =  Matriz[x][y].coelho.GER_PROC_COELHOS;
                         int newX,newY;
-                        newX = coordenadaPossivel[ (x+y+G)%Possibilidades].x;
-                        newY = coordenadaPossivel[ (x+y+G)%Possibilidades].y;
+                        //newX = coordenadaPossivel[ (x+y+G)%Possibilidades].x;
+                        //newY = coordenadaPossivel[ (x+y+G)%Possibilidades].y;
 
-                        /*if(Possibilidades>1){
+                        if(Possibilidades>1){
                               newX = coordenadaPossivel[ (x+y+G)%Possibilidades].x;
                               newY = coordenadaPossivel[ (x+y+G)%Possibilidades].y;
                         }else{
                                newX = coordenadaPossivel[0].x;
                                newY = coordenadaPossivel[0].y;
-                        }*/
+                        }
                         
                         // printf("CALULO -  (%d+%d+%d) mod %d = %d \n",x,y,G,Possibilidades,(x+y+G)%Possibilidades);
                         // printf("ANTIGO (%d,%d) ",x,y); 
@@ -453,7 +453,7 @@ int main(int argc, char *argv[]){
                           NewMatriz[newX][newY].id=1;
 
                          //ZERADOS NAVAMENTE
-                          NewMatriz[x][y].coelho.GER_PROC_COELHOS++;
+                          NewMatriz[x][y].coelho.GER_PROC_COELHOS=0;
                           NewMatriz[x][y].coelho.idade=0; 
                           
                           Matriz[x][y].id = -1;
@@ -620,7 +620,7 @@ int main(int argc, char *argv[]){
                                   NewMatriz[newX][newY].id=2;
 
                                   //ZERADOS NOVAMENTE
-                                  NewMatriz[x][x].raposa.GER_PROC_RAPOSAS++;
+                                  NewMatriz[x][x].raposa.GER_PROC_RAPOSAS=0;
                                   NewMatriz[x][y].raposa.idade=0; 
                                   //NewMatriz[newX][newY].raposa.GER_ALIM_RAPOSAS=0;
 
@@ -654,6 +654,8 @@ int main(int argc, char *argv[]){
                    
                 }
               } 
+
+
               printf("\n\nGERAÇÃO %d",k);
               printf("\n____________________________________________________________________________________________________ \n");
               for(int i=0;i<LIN;i++){
@@ -677,22 +679,24 @@ int main(int argc, char *argv[]){
   }
 
 
+     printf("\n____________________________________________________________________________________________________ \n");
+              printf("\nBJECTOS GERADOS\n");
 
-           /* for(int i=0;i<LIN;i++){
+            for(int i=0;i<LIN;i++){
               for(int j=0;j<COL;j++){
-                    if(NewMatriz[i][j].id==1){
-                       printf("COELHOS (%d,%d)\n",i,j);
+                    if(Matriz[i][j].id==1){
+                       printf("\nCOELHOS (%d,%d)",i,j);
                     }
-                    else if(NewMatriz[i][j].id==2){
-                         printf("RAPOSA (%d,%d)\n",i,j);
-                    }else if(NewMatriz[i][j].id==3){
-                      printf("PEDRA (%d,%d)\n",i,j);
+                    else if(Matriz[i][j].id==2){
+                         printf("\nRAPOSA (%d,%d)",i,j);
+                    }else if(Matriz[i][j].id==3){
+                      printf("\nPEDRA (%d,%d)",i,j);
                     }else{
                      
                     }
               }
               printf("\n");
-            }*/
+            }
             
            /* for(int i=0;i<LIN;i++){
               for(int j=0;j<COL;j++){
