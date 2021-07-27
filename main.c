@@ -23,6 +23,12 @@ typedef struct rocha{
     Coordenada coordenada;
 } Rocha;
 
+typedef struct matriz{
+    int id;
+    Raposa raposa;
+    Rocha pedra;
+    Coelho coelho;
+} matriz;
 
 Raposa setRaposa(int x,int y,int GerProc,int GerAlim, int Idade){
    Raposa r;
@@ -35,12 +41,7 @@ Raposa setRaposa(int x,int y,int GerProc,int GerAlim, int Idade){
    return r;
 }
 
-typedef struct matriz{
-    int id;
-    Raposa raposa;
-    Rocha pedra;
-    Coelho coelho;
-} matriz;
+
 
 Coelho setCoelho(int x,int y,int GerProc, int Idade){
   Coelho c;
@@ -60,9 +61,9 @@ Rocha setRocha(int x,int y){
 
 int main(int argc, char *argv[]){
    
-   int GER_PROC_COELHOS=2,GER_PROC_RAPOSAS=9,GER_ALIM_RAPOSAS=6,N_GER=4,N_OBJS,LIN=10,COL=10;
+  // int GER_PROC_COELHOS=2,GER_PROC_RAPOSAS=9,GER_ALIM_RAPOSAS=6,N_GER=100,N_OBJS,LIN=10,COL=10;
 
- //  int GER_PROC_COELHOS=2,GER_PROC_RAPOSAS=4,GER_ALIM_RAPOSAS=3,N_GER=5,N_OBJS,LIN=5,COL=5;
+   int GER_PROC_COELHOS=2,GER_PROC_RAPOSAS=4,GER_ALIM_RAPOSAS=3,N_GER=6,N_OBJS,LIN=5,COL=5;
 
 /* printf("\nDigite o número de gerações até que um coelho possa procriar: ");
   scanf("%d",&GER_PROC_COELHOS);
@@ -131,7 +132,7 @@ int main(int argc, char *argv[]){
 
 
 
-         Matriz[7][2].id=3;
+       /*  Matriz[7][2].id=3;
          Matriz[7][2].pedra = setRocha(7,2);
 
 
@@ -323,10 +324,10 @@ int main(int argc, char *argv[]){
                  
          Matriz[4][6].id=2;
          Matriz[4][6].raposa = setRaposa(4,6,0,0,0);
+*/
 
 
 
-/*
          Matriz[0][0].id=3;
          Matriz[0][0].pedra = setRocha(0,0);
          
@@ -353,7 +354,7 @@ int main(int argc, char *argv[]){
 
          Matriz[4][4].id=2;
          Matriz[4][4].raposa = setRaposa(4,4,0,0,0);
-*/
+
 
 
 
@@ -453,7 +454,7 @@ int main(int argc, char *argv[]){
                           NewMatriz[newX][newY].id=1;
 
                          //ZERADOS NAVAMENTE
-                          NewMatriz[x][y].coelho.GER_PROC_COELHOS=0;
+                          NewMatriz[x][y].coelho.GER_PROC_COELHOS++;
                           NewMatriz[x][y].coelho.idade=0; 
                           
                           Matriz[x][y].id = -1;
@@ -621,7 +622,7 @@ int main(int argc, char *argv[]){
 
                                   //ZERADOS NOVAMENTE
                                   NewMatriz[x][x].raposa.GER_PROC_RAPOSAS=0;
-                                  NewMatriz[x][y].raposa.idade=0; 
+                                   NewMatriz[x][y].raposa.idade=0; 
                                   //NewMatriz[newX][newY].raposa.GER_ALIM_RAPOSAS=0;
 
                                   Matriz[x][y].id = -1;
